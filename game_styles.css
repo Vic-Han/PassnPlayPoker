@@ -1,0 +1,480 @@
+/*
+    Course : SENG 513 Web Based Systems
+    Date: November 10th, 2023
+    Assignment 3
+    Name: Victor Han
+    UCID: 30112492
+*/
+#game_display{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    background-color: #009b18;
+    width: 700px;
+    left:50%;
+    transform: translateX(-50%);
+
+}
+#game_display.invisible{
+    display: none;
+    background-color: blue;
+}
+
+
+#top_display,#middle_display,#bottom_display{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    position: relative;
+    width: 100%;
+    margin-top: 5%;
+}
+#top_display{
+    height: 200px;
+}
+#middle_display{
+    height: 200px;
+}
+#bottom_display{
+    height:180px;    
+}
+#game_start_button{
+    position: relative;
+    width: 60%;
+    height: 60%;
+    top:20%;
+    left:20%;
+    font-size: 2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff3322;
+    transition: 1s;
+}
+#game_start_button:hover{
+    width: 65%;
+    height: 65%;
+    font-size: 2.2em;
+    background-color: #dd1100;
+}
+.player_view{
+    display: grid;
+    grid-template-columns: 42% 58%;
+}
+.player_image{
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+.player_name{
+    font-size: 1.4rem;
+}
+.card{
+    width:67px;
+    aspect-ratio: 2/3;
+}
+.face_up.card{
+    
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 5px;;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+#community_cards{
+    display: grid;
+    grid-template-columns: 67px 67px 67px 67px 67px;
+    gap:2px;
+}
+.diamond,.heart{
+    color:rgb(255, 70, 70);
+}
+.spade,.club{
+    color:rgb(10, 10, 10);
+}
+.stack_value{
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.card_container{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap:0;
+}
+.show_cards{
+    display: none;
+    
+}
+#exit_game_button{
+    position: relative;
+    width: 80px;
+    height: 70px;
+    top:30%;
+    left:30%;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff3322;
+    transition: 1s;
+}
+#exit_game_button:hover{
+    width: 90px;
+    height: 80px;
+    font-size: 1.7em;
+    background-color: #dd1100;
+}
+.pot_display{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.pot_heading{
+    text-align: center;
+}
+#exit_popup{
+    display: none;
+}
+.popup_overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    z-index: 9999; /* Ensure the popup appears above other content */
+}
+.popup_contents{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 470px;
+    background-color: #d9d9d9;
+    padding: 20px;
+    z-index: 10000; /* Ensure the popup content appears above the overlay */
+    align-items: center;
+}
+.popup_contents *{
+    position: relative;
+    color: #000;
+    
+}
+.popup_buttons{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.popup_button{
+    background-color: #ff4444;
+    border:none;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    width: 40%;
+    aspect-ratio: 3/1;
+    font-size: 1.7em;
+    left: 30%;
+    text-align: center;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.popup_button:hover{
+    width: 45%;
+    aspect-ratio: 3/1;
+    font-size: 1.8em;
+}
+.chip_icon{
+    width: 32px;
+    height: 32px;;
+}
+#board_display{
+    position: relative;
+}
+#pot_display{
+    position: relative;
+    top: 155px;
+    left: 45px;
+}
+.card.deck{
+    position: relative;
+    width: 67px;
+    aspect-ratio: 2/3;
+    left: 120px;
+}
+#action_buttons{
+    position: absolute;
+    top:0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.action_button{
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff3322;
+    transition: 1s;
+}
+.action_button:hover{
+    width: 115px;
+    height: 34px;
+    font-size: 1.4em;
+    background-color: #dd1100;
+}
+#raise_actions{
+    position: absolute;
+    top:0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#raise_input {
+    width: 185px;
+    color: #000;
+    padding: 10px; /* Add some padding for a comfortable input field */
+    border: 2px solid #333; /* Add a border for a defined look */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    font-size: 16px; /* Adjust the font size for better readability */
+    background-color: #f4f4f4; /* Use a light background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    transition: border-color 0.3s; /* Add a smooth transition effect */
+}
+
+#raise_input:focus {
+    border-color: #0066cc; 
+    outline: none; 
+}
+.raise_form_button{
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff3322;
+    transition: 1s;
+}
+.raise_form_button:hover{
+    width: 115px;
+    height: 34px;
+    font-size: 1.4em;
+    background-color: #dd1100;
+}
+.dynamic_card{
+    width: 67px;
+    aspect-ratio: 2/3;
+}
+.show_cards{
+    width: 130px;
+    border: none;
+    border-radius: 2px;
+    background-color: #ff3322;
+}
+#player_win_popup{
+    display: none;
+}
+.win_popup_button{
+    width: 30%;
+    aspect-ratio: 3/1;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ff3322;
+}
+@media (max-width: 750px) {
+    #game_display{
+        width: 350px;
+        transform: translateX(-200px);
+    }
+   
+    #exit_game_button{
+        left: 10%;
+        width: 56px;
+        height: 49px;
+        font-size: 1.2em;
+    }
+    #exit_game_button:hover{
+        width: 64px;
+        height: 55px;
+        font-size: 1.4em;
+        background-color: #dd1100;
+    }
+    .show_cards{
+        width: 65px;
+        font-size: 8px;
+        
+    }
+    .chip_icon{
+        height: 16px;
+        width: 16px;
+    }
+    #top_display{
+        height: 200px;
+    }
+    #middle_display{
+        height: 200px;
+    }
+    #bottom_display{
+        height:180px;    
+    }
+    #game_start_button{
+        position: relative;
+        width: 60%;
+        height: 20%;
+        top:30%;
+        left:20%;
+        font-size: 1.2em;
+        border-radius: 5px;
+        transition: 1s;
+    }
+    #game_start_button:hover{
+        width: 65%;
+        height: 21%;
+        font-size: 1.25em;
+        background-color: #dd1100;
+    }
+    .player_name{
+        font-size: 0.7rem;
+    }
+    .card{
+        width:33px;
+    }
+    #community_cards{
+        display: grid;
+        grid-template-columns: 33px 33px 33px 33px 3px;
+        gap:1px;
+    }
+    .face_up.card{
+        border: 1px solid red;
+        border-radius: 3px;
+    }
+    .stack_value{
+        position: relative;
+        font-size: 0.9rem;
+    }
+    .show_cards{
+        display: none;
+        
+    }
+    .popup_contents{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 240px;
+        background-color: #d9d9d9;
+        padding: 10px;
+        z-index: 10000; 
+        align-items: center;
+    }
+    .popup_text{
+        font-size: 1.3em;
+    }
+    .popup_button{
+        background-color: #ff4444;
+        border:none;
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+        width: 40%;
+        aspect-ratio: 3/1;
+        font-size: 1.1em;
+        left: 30%;
+        text-align: center;
+        text-decoration: none;
+        transition: 1s;
+    }
+    .popup_button:hover{
+        width: 45%;
+        aspect-ratio: 3/1;
+        font-size: 1.2em;
+    }
+    .card.deck{
+        position: relative;
+        width: 33px;
+        aspect-ratio: 2/3;
+        left: 80px;
+    }
+    .action_button{
+        text-align: center;
+        width: 60px;
+        height: 20px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 15px;
+        font-size: 0.8em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #ff3322;
+        transition: 1s;
+    }
+    .action_button:hover{
+        width: 70px;
+        height: 23px;
+        font-size: 1.0em;
+        background-color: #dd1100;
+    }
+    #raise_input {
+        width: 105px;
+        color: #000;
+        padding: 5px; 
+        border: 1px solid #333;
+        border-radius: 5px; 
+        font-size: 9px; 
+        background-color: #f4f4f4; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        transition: border-color 0.3s; 
+    }
+    .raise_form_button{
+        text-align: center;
+        width: 60px;
+        height: 25px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 12px;
+        font-size: 0.9em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #ff3322;
+        transition: 1s;
+    }
+    .raise_form_button:hover{
+        width: 65px;
+        height: 28px;
+        font-size: 1.1em;
+        background-color: #dd1100;
+    }
+    .dynamic_card{
+        width: 33px;
+        aspect-ratio: 2/3;
+    }
+   
+}

@@ -1,0 +1,77 @@
+/*
+    Course : SENG 513 Web Based Systems
+    Date: November 10th, 2023
+    Assignment 3
+    Name: Victor Han
+    UCID: 30112492
+*/
+
+#textContainer {
+    position: relative;
+    width: 950px;
+    height:100% ;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 66;
+}
+
+.instruction_screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    display: none;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.slide_out_left {
+    animation: slideOutLeft 1s forwards;
+}
+.slide_out_right{
+    animation: slideOutRight 1s forwards;
+}
+.slide_in_left{
+    animation: slideInLeft 1s forwards;
+}
+.slide_in_right {
+    animation: slideInRight 1s forwards;
+}
+
+@keyframes slideOutLeft {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-100%); }
+}
+@keyframes slideOutRight {
+    from { transform: translateX(0%); }
+    to { transform: translateX(100%); }
+}
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0%); }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0%); }
+}
+@media (max-width: 1000px) {
+    #textContainer{
+        width: 650px;
+    }
+    .instruction_screen{
+        padding: 10px;
+    }
+}
+@media (max-width: 700px) {
+    #textContainer{
+        width: 375px;
+    }  
+    .instruction_screen{
+        padding: 0px;
+    } 
+}

@@ -1,0 +1,116 @@
+/*
+    Course : SENG 513 Web Based Systems
+    Date: November 10th, 2023
+    Assignment 3
+    Name: Victor Han
+    UCID: 30112492
+*/
+html,body{
+    margin: 0;
+    padding: 0;
+}
+.blue_background{
+    width: 100%;
+    height: 100vh;
+    padding-top: 2vw;
+    background-color: #4c7db9;
+    z-index: 3;
+}
+
+.button_list{
+    width: 550px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+.nav_button{
+    width: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e9e8e7;
+    color: #4c7db9;
+    font-size: 18px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+.instructions {
+    /*max-width: 600px;*/
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+.main_heading,.sub_heading,.content{
+    width: 60%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.main_heading {
+    font-size: 36px;
+    color: #e9e8e7;
+    margin-bottom: 10px;
+}
+
+.sub_heading {
+    color: #222;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.content{
+    color: #222;
+    font-size: 20px;
+}
+
+@media (max-width: 1000px) {
+    .button_list{
+        width: 400px;
+    }
+    .nav_button{
+        font-size: 15px;
+    }
+    .main_heading {
+        font-size: 30px;
+        margin-bottom: 9px;
+        padding-top: 5px;
+    }
+    
+    .sub_heading {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .content{
+        font-size: 16px;
+    }
+}
+@media (max-width: 700px){
+    .button_list{
+        width: 220px;
+    }
+    .nav_button{
+        padding: 8px;
+        font-size: 9px;
+    }
+    .main_heading {
+        font-size: 24px;
+        margin-bottom: 7px;
+        padding-top: 0px;
+    }
+    
+    .sub_heading {
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+    
+    .content{
+        font-size: 12px;
+    }
+
+}

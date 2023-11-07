@@ -1,0 +1,138 @@
+/*
+    Course : SENG 513 Web Based Systems
+    Date: November 10th, 2023
+    Assignment 3
+    Name: Victor Han
+    UCID: 30112492
+*/
+
+*{
+    font-family: sans-serif;
+}
+body,html{
+    padding: 0;
+    margin: 0;
+}
+.main_background{
+    background-color: #009b18;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow-x: hidden;
+}
+#player_name_form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 700px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    background-color: #009b18;
+}
+.player_name_input{
+    position: relative;
+    width: 320px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10%;
+}
+.player_name_button{
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin:5%;
+}
+#player_name_form.invisible{
+    display: none;
+}
+.nav_button{
+    width: 200px; 
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    aspect-ratio: 5/1;
+    margin-top: 8%;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #ff3322;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+}
+.nav_button:hover{
+    width: 220px;
+    aspect-ratio: 5/1;
+    font-size: 1.5em;
+    background-color: #dd1100;
+}
+#error_message_name_screen{
+    margin: 15%;
+    color: red;
+    opacity: 0.0;
+}
+#error_message_name_screen.visible{
+    opacity: 1.0;
+    font-size: 1.2em;
+}
+.main_label{
+    text-align: center;
+}
+.player_name_input {
+    margin: 10px 0;
+  
+}
+
+.name_label {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.name_field {
+    padding: 5px;
+    border: 2px solid #ff3322;
+    border-radius: 5px;
+    font-size: 1em;
+}
+@media (max-width:450px) {
+    #player_name_form{
+        width: 320px;
+    }
+    .player_name_input{
+        width: 280px;
+    }
+    .nav_button{
+        width: 160px; 
+        font-size: 1.2em;
+    }
+    .nav_button:hover{
+        width: 175px;
+        aspect-ratio: 5/1;
+        font-size: 1.3em;
+        background-color: #dd1100;
+    }
+    #error_message_name_screen{
+        margin: 15%;
+        color: red;
+        opacity: 0.0;
+    }
+    #error_message_name_screen.visible{
+        opacity: 1.0;
+        font-size: 1.0em;
+    }
+    .main_label{
+        text-align: center;
+        font-size: 1.6em;
+    }
+    .player_name_input {
+        width: 220px;
+    }
+    .name_label {
+        font-size: 1.0em;
+    }
+}

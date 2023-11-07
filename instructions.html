@@ -1,0 +1,160 @@
+<!--
+    Course : SENG 513 Web Based Systems
+    Date: November 10th, 2023
+    Assignment 3
+    Name: Victor Han
+    UCID: 30112492
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Instructions </title>
+    <link rel = "stylesheet" href = "instruction_animation.css">
+    <link rel = "stylesheet" href = "instructions.css">
+    <script src = "instruction_animation.js" defer></script>
+</head>
+<body>
+    <div class="blue_background">
+        <div class = "button_list">
+            <a class = "back_href" href = "home_page.html"> <button class = "nav_button">Back</button></a>
+            <button class = "nav_button" id = "prev_button" onclick="moveBackward()">Prev</button>
+            <button class = "nav_button" id = "next_button" onclick="moveForward()">Next</button>
+        </div>
+    
+        <div id="textContainer">
+            <div id="instruction_1" class = "instruction_screen">
+                
+                <h1 class="main_heading">Welcome to Texas Holdem!</h1>
+                <h2 class="sub_heading">Game Objective</h2>
+                <h3 class = "content"> Try to collect all your opponents chips by winning a round (more on that later)</h3>
+                <h2 class="sub_heading">Game Setup</h2>
+                <h3 class="content">This game is played with a standard 52 card deck</h3>
+                <h3 class="content">Each Player is dealt two cards, with four rounds of betting 
+                and a showdown at the end to determine who wins the pot</h3>
+                
+            </div>
+            <div id="instruction_2" class = "instruction_screen">
+
+                <h1 class="main_heading">Turn Setup:</h1>
+                <h2 class="sub_heading">Small and Big Blinds:</h2>
+                <h3 class="content">
+                    Before each hand, two players are designated as the "small blind" and "big blind". 
+                    The small blind is required to make a small bet, and the big blind makes double the bet.
+                </h3>
+                <h2 class="sub_heading">Player Order</h2>
+                <h3 class="content">
+                    The player to the left(clockwise) of the big blind starts the betting. Betting proceeds clockwise 
+                    around the table.
+                </h3>
+                
+            </div>
+    
+            <div id="instruction_3" class="instruction_screen">
+                
+                <h1 class="main_heading">How does betting work?</h1>
+                <h2 class="sub_heading">Actions:</h2>
+                <h3 class="content">Players can take various actions during their turn. </h3>
+                <h3 class="content">"Checking" is when you bet nothing.</h3>
+                <h3 class="content">"Raising" is when you want to bet more than the previous person. </h3>
+                <h3 class="content">"Calling" is when you match the previous persons bet. </h3>
+                <h3 class="content">"Folding" is when you decide not to match the bet and give up on winning the pot.</h3>
+                
+            </div>
+            <div id="instruction_4" class="instruction_screen">
+                
+                <h1 class="main_heading">How does betting work? Pt2</h1>
+                <h2 class="sub_heading">Pre-Flop:</h2>
+                <h3 class="content">
+                    After receiving their hole cards, the player to the left of the big blind starts the 
+                    betting. Players have the option to bet, raise, or fold.
+                </h3>
+                <h2 class="sub_heading">Flop:</h2>
+                <h3 class="content">
+                    Three community cards are dealt face-up on the table.A second round of betting ensues 
+                    starting with the small blind.
+                </h3>
+                <h2 class="sub_heading">Turn:</h2>
+                <h3 class="content">
+                    A fourth community card, known as the "turn", is revealed. Another round of betting resumes, 
+                    with the small blind.
+                </h3>
+                <h2 class="sub_heading">River:</h2>
+                <h3 class="content">
+                    The fifth and final community card, known as the "river", is revealed. One last round 
+                    of betting takes place.
+                </h3>
+            </div>
+            
+            <div id="instruction_5" class="instruction_screen">
+                <h1 class="main_heading">How to win a round:</h1>
+                <h2 class="sub_heading">Everyone else folds</h2>
+                <h3 class="content">
+                    If all other players fold their hands, the last remaining player wins the pot.
+                    This can be done through bluffing or a lack of a good hand from the other player.
+                </h3>
+                <h2 class="sub_heading">Winning showdown</h2>
+                <h3 class="content">
+                    In a showdown, the player with the best hand (highest-ranking combination) wins the pot.
+                    This occurs after the river betting is done. The hand of five is created 
+                </h3>
+            </div>
+            <div id="instruction_6" class="instruction_screen">
+                <h1 class="main_heading">Showdown: Hand Rankings</h1>
+                <h2 class="sub_heading">Straight Flush:</h2>
+                <h3 class="content">
+                    A Straight Flush consists of five consecutive cards of the same suit. For example: 
+                    7♠ 8♠ 9♠ 10♠ J♠.
+                </h3>
+                <h2 class="sub_heading">Four of a Kind:</h2>
+                <h3 class="content">
+                    Four cards of the same rank, along with any fifth card. For example: 8♠ 8♦ 8♣ 8♥ 2♠.
+                </h3>
+                <h2 class="sub_heading">Full House:</h2>
+                <h3 class="content">
+                    A combination of three of a kind and a pair. For example: 5♠ 5♦ 5♣ 7♠ 7♦.
+                </h3>
+            </div>
+            
+            <div id="instruction_7" class="instruction_screen">
+                <h1 class="main_heading">Showdown: Hand Rankings Pt2</h1>
+                <h2 class="sub_heading">Flush:</h2>
+                <h3 class="content">
+                    A Flush contains five cards of the same suit, not in sequence. For example: 
+                    2♥ 5♥ 7♥ 9♥ K♥.
+                </h3>
+                <h2 class="sub_heading">Straight:</h2>
+                <h3 class="content">
+                    A Straight is a sequence of five cards in consecutive order, not all of the same suit. 
+                    For example: 6♠ 7♦ 8♥ 9♠ 10♣.
+                </h3>
+                <h2 class="sub_heading">Three of a Kind:</h2>
+                <h3 class="content">
+                    Three cards of the same rank, with two unrelated side cards. For example: 
+                    9♠ 9♦ 9♣ 3♠ 7♥.
+                </h3>
+            </div>
+            <div id="instruction_8" class="instruction_screen">
+                <h1 class="main_heading">Showdown: Hand Rankings Pt3</h1>
+                <h2 class="sub_heading">Two Pair:</h2>
+                <h3 class="content">
+                    Two Pair consists of two sets of pairs, along with an unrelated fifth card. For example: 
+                    8♠ 8♦ 4♣ 4♠ Q♠.
+                </h3>
+                <h2 class="sub_heading">One Pair:</h2>
+                <h3 class="content">
+                    One Pair contains two cards of the same rank, along with three unrelated side cards. 
+                    For example: J♠ J♦ 5♣ 9♠ 3♠.
+                </h3>
+                <h2 class="sub_heading">High Card:</h2>
+                <h3 class="content">
+                    High Card is when none of the above combinations are achieved. The hand with the highest 
+                    single card wins. For example: A♠ 10♦ 8♣ 6♠ 3♠.
+                </h3>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
