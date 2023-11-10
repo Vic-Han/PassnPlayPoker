@@ -5,7 +5,8 @@
     Name: Victor Han
     UCID: 30112492
 */
-async function winPot(winningPlayer){
+
+async function winPot(winningPlayer) {
     const feedBackMessage = document.getElementById("feedback_message");
     if(winningPlayer === 0){
         feedBackMessage.innerText = player1Name + " wins the pot!!"
@@ -103,19 +104,19 @@ async function splitPot(p1,p2){
 async function threeWayPotSplit(){
     document.getElementById("feedback_message").innerText = "Everyone splits the pot!!"
     await animatePotWin(0)
-    player_money_count[p1] += pot_value/3;
-    pot_value *= (2/3);
+    player_money_count[0] += playerBetAmount[0];
+    pot_value -= playerBetAmount[0];
     showPotOnly();
     document.getElementById(idToStack[0]).innerHTML = 
     `<img class ="chip_icon" src = "images/poker_chip.png" alt ="poker chip">` + player_money_count[0]
     await animatePotWin(1)
-    player_money_count[1] += pot_value/2;
-    pot_value /= 2;
+    player_money_count[1] += playerBetAmount[1];
+    pot_value -= playerBetAmount[1];
     showPotOnly();
     document.getElementById(idToStack[1]).innerHTML = 
     `<img class ="chip_icon" src = "images/poker_chip.png" alt ="poker chip">` + player_money_count[1]
     await animatePotWin(2)
-    player_money_count[2] += pot_value;
+    player_money_count[2] += playerBetAmount[1];
     pot_value = 0;
     showPotOnly();
     document.getElementById(idToStack[2]).innerHTML = 
@@ -123,16 +124,16 @@ async function threeWayPotSplit(){
 
 }
 const flopLogic = async () =>{
-    const randomCard1 = getRandomCard();
-    //const randomCard1 = {suit:'diamonds',value: 11}
+    //const randomCard1 = getRandomCard();
+    const randomCard1 = {suit:'clubs',value: 11}
     communityCards.push(randomCard1)
     card_deck.delete(randomCard1);
-    const randomCard2 = getRandomCard();
-    //const randomCard2 = {suit:'spades',value: 12}
+    //const randomCard2 = getRandomCard();
+    const randomCard2 = {suit:'clubs',value: 12}
     communityCards.push(randomCard2)
     card_deck.delete(randomCard2);
-    const randomCard3 = getRandomCard();
-    //const randomCard3 = {suit:'clubs',value: 14}
+    //const randomCard3 = getRandomCard();
+    const randomCard3 = {suit:'clubs',value: 14}
     communityCards.push(randomCard3)
     card_deck.delete(randomCard3);
     await animateFlop(randomCard1,randomCard2,randomCard3)
@@ -143,8 +144,8 @@ const flopLogic = async () =>{
 }
 const turnLogic = async() =>{
 
-    const randomCard = getRandomCard();
-    //const randomCard = {suit:'clubs',value: 13}
+    //const randomCard = getRandomCard();
+    const randomCard = {suit:'clubs',value: 13}
     communityCards.push(randomCard)
     card_deck.delete(randomCard);
     await animateTurn(randomCard)
@@ -154,8 +155,8 @@ const turnLogic = async() =>{
     showActionButtons();
 }
 const riverLogic = async() =>{
-    const randomCard = getRandomCard();
-    //const randomCard = {suit:'diamonds',value: 13}
+    //const randomCard = getRandomCard();
+    const randomCard = {suit:'clubs',value: 10}
     communityCards.push(randomCard)
     card_deck.delete(randomCard);
     await animateRiver(randomCard)

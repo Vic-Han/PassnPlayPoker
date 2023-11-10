@@ -5,7 +5,8 @@
     Name: Victor Han
     UCID: 30112492
 */
-function checkFlush(cardArray){
+
+function checkFlush(cardArray) {
     const suit = cardArray[0].suit
     return (cardArray[1].suit === suit && cardArray[2].suit === suit && cardArray[3].suit === suit &&cardArray[4].suit === suit)
 }

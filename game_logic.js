@@ -307,7 +307,6 @@ async function fold(){
     let cardlist = null
     player_active_round[playerTurn] = false;
     playerRaiseOption[playerTurn] = false;
-    console.log(playerRaiseOption)
     player_cards[player_cards] = []
     if(playerTurn === 0){
         cardlist =  document.getElementById("player1_card_list")
@@ -342,9 +341,6 @@ async function fold(){
             }
             if(player_money_count[1] === 0){
                 active_players[1] = false
-            }
-            if(!active_players[0] && !active_players[1]){
-                console.log("player3 Wins!!")
             }
             rotateBlinds();
             playRound();

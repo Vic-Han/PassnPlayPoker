@@ -5,6 +5,7 @@
     Name: Victor Han
     UCID: 30112492
 */
+
 const suitToClass = {'hearts': 'heart','diamonds': 'diamond','clubs': 'club','spades': 'spade'};
 const suitToChar = {'hearts': '♥','diamonds': '♦','clubs': '♣','spades': '♠'};
 const raiseActionsHTML = () => {
@@ -71,6 +72,7 @@ const createCardDiv = (card) =>{
 function showCards(player){
     if(player !== playerTurn){
         document.getElementById("feedback_message").innerText = "You cheater! Don't look at someone else's cards!"
+        return;
     }
     let card_list = null
     if(player === 0){
@@ -82,7 +84,7 @@ function showCards(player){
     else{
         card_list = document.getElementById("player3_card_list")
     }
-    const faceDownHTML = card_list.innerHTML;
+    const faceDownHTML = `<img src="images/card_back.jpg" class="card" id = "player3_card1">` + `<img src="images/card_back.jpg" class="card" id = "player3_card2">`
     const card1 = createCardDiv(player_cards[player][0])
     const card2 = createCardDiv(player_cards[player][1])
     card_list.innerHTML = card1+ card2;
@@ -215,11 +217,21 @@ async function animateFlop(card1,card2,card3){
     document.getElementById("game_display").innerHTML += `<img class = "dynamic_card" id = "dynamic_card" src = "images/card_back.jpg" alt = "card">`
     let movingCard = document.getElementById("dynamic_card");
     movingCard.style.position = "absolute";
-    movingCard.style.top = "455px";
-    movingCard.style.left = "300px";
-    for(let position = 300; position >= 120; position--){
-        movingCard.style.left = position + "px";
-        await sleep(4);
+    if(window.innerWidth < 750){
+        movingCard.style.top = "455px";
+        movingCard.style.left = "300px";
+        for(let position = 300; position >= 120; position--){
+            movingCard.style.left = position + "px";
+            await sleep(4);
+        }
+    }
+    else{
+        movingCard.style.top = "505px";
+        movingCard.style.left = "300px";
+        for(let position = 590; position >= 245; position--){
+            movingCard.style.left = position + "px";
+            await sleep(4);
+        }
     }
     movingCard.remove()
     document.getElementById("community_cards").innerHTML += createCardDiv(card1)
@@ -227,11 +239,21 @@ async function animateFlop(card1,card2,card3){
     document.getElementById("game_display").innerHTML += `<img class = "dynamic_card" id = "dynamic_card" src = "images/card_back.jpg" alt = "card">`
     movingCard = document.getElementById("dynamic_card");
     movingCard.style.position = "absolute";
-    movingCard.style.top = "455px";
-    movingCard.style.left = "300px";
-    for(let position = 300; position >= 155; position--){
-        movingCard.style.left = position + "px";
-        await sleep(4);
+    if(window.innerWidth < 750){
+        movingCard.style.top = "455px";
+        movingCard.style.left = "300px";
+        for(let position = 300; position >= 155; position--){
+            movingCard.style.left = position + "px";
+            await sleep(4);
+        }
+    }
+    else{
+        movingCard.style.top = "505px";
+        movingCard.style.left = "590px";
+        for(let position = 590; position >= 310; position--){
+            movingCard.style.left = position + "px";
+            await sleep(4);
+        }
     }
     movingCard.remove()
     document.getElementById("community_cards").innerHTML += createCardDiv(card2)
@@ -240,11 +262,21 @@ async function animateFlop(card1,card2,card3){
     document.getElementById("game_display").innerHTML += `<img class = "dynamic_card" id = "dynamic_card" src = "images/card_back.jpg" alt = "card">`
     movingCard = document.getElementById("dynamic_card");
     movingCard.style.position = "absolute";
-    movingCard.style.top = "455px";
-    movingCard.style.left = "300px";
-    for(let position = 300; position >= 185; position--){
-        movingCard.style.left = position + "px";
-        await sleep(4);
+    if(window.innerWidth < 750){
+        movingCard.style.top = "455px";
+        movingCard.style.left = "300px";
+        for(let position = 300; position >= 185; position--){
+            movingCard.style.left = position + "px";
+            await sleep(4);
+        }
+    }
+    else{
+        movingCard.style.top = "505px";
+        movingCard.style.left = "590px";
+        for(let position = 590; position >= 375; position--){
+            movingCard.style.left = position + "px";
+            await sleep(4);
+        }
     }
     movingCard.remove()
     document.getElementById("community_cards").innerHTML += createCardDiv(card3)
@@ -256,12 +288,23 @@ async function animateTurn(card){
     document.getElementById("game_display").innerHTML += `<img class = "dynamic_card" id = "dynamic_card" src = "images/card_back.jpg" alt = "card">`
     movingCard = document.getElementById("dynamic_card");
     movingCard.style.position = "absolute";
-    movingCard.style.top = "455px";
-    movingCard.style.left = "300px";
-    for(let position = 300; position >= 225; position--){
-        movingCard.style.left = position + "px";
-        await sleep(7);
+    if(window.innerWidth < 750){
+        movingCard.style.top = "455px";
+        movingCard.style.left = "300px";
+        for(let position = 300; position >= 225; position--){
+            movingCard.style.left = position + "px";
+            await sleep(7);
+        }
     }
+    else{
+        movingCard.style.top = "505px";
+        movingCard.style.left = "600px";
+        for(let position = 590; position >= 455; position--){
+            movingCard.style.left = position + "px";
+            await sleep(4);
+        }
+    }
+    
     movingCard.remove()
     document.getElementById("community_cards").innerHTML += createCardDiv(card)
 }
@@ -269,11 +312,21 @@ async function animateRiver(card){
     document.getElementById("game_display").innerHTML += `<img class = "dynamic_card" id = "dynamic_card" src = "images/card_back.jpg" alt = "card">`
     movingCard = document.getElementById("dynamic_card");
     movingCard.style.position = "absolute";
-    movingCard.style.top = "455px";
-    movingCard.style.left = "300px";
-    for(let position = 300; position >= 260; position--){
-        movingCard.style.left = position + "px";
-        await sleep(7);
+    if(window.innerWidth < 750){
+        movingCard.style.top = "455px";
+        movingCard.style.left = "300px";
+        for(let position = 300; position >= 260; position--){
+            movingCard.style.left = position + "px";
+            await sleep(7);
+        }
+    }
+    else{
+        movingCard.style.top = "505px";
+        movingCard.style.left = "590px";
+        for(let position = 590; position >= 520; position--){
+            movingCard.style.left = position + "px";
+            await sleep(4);
+        }
     }
     movingCard.remove()
     document.getElementById("community_cards").innerHTML += createCardDiv(card)
