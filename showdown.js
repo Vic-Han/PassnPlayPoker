@@ -124,16 +124,16 @@ async function threeWayPotSplit(){
 
 }
 const flopLogic = async () =>{
-    //const randomCard1 = getRandomCard();
-    const randomCard1 = {suit:'clubs',value: 11}
+    const randomCard1 = getRandomCard();
+    //const randomCard1 = {suit:'clubs',value: 11}
     communityCards.push(randomCard1)
     card_deck.delete(randomCard1);
-    //const randomCard2 = getRandomCard();
-    const randomCard2 = {suit:'clubs',value: 12}
+    const randomCard2 = getRandomCard();
+    //const randomCard2 = {suit:'clubs',value: 12}
     communityCards.push(randomCard2)
     card_deck.delete(randomCard2);
-    //const randomCard3 = getRandomCard();
-    const randomCard3 = {suit:'clubs',value: 14}
+    const randomCard3 = getRandomCard();
+    //const randomCard3 = {suit:'clubs',value: 14}
     communityCards.push(randomCard3)
     card_deck.delete(randomCard3);
     await animateFlop(randomCard1,randomCard2,randomCard3)
@@ -144,8 +144,8 @@ const flopLogic = async () =>{
 }
 const turnLogic = async() =>{
 
-    //const randomCard = getRandomCard();
-    const randomCard = {suit:'clubs',value: 13}
+    const randomCard = getRandomCard();
+    //const randomCard = {suit:'clubs',value: 13}
     communityCards.push(randomCard)
     card_deck.delete(randomCard);
     await animateTurn(randomCard)
@@ -155,8 +155,8 @@ const turnLogic = async() =>{
     showActionButtons();
 }
 const riverLogic = async() =>{
-    //const randomCard = getRandomCard();
-    const randomCard = {suit:'clubs',value: 10}
+    const randomCard = getRandomCard();
+    //const randomCard = {suit:'clubs',value: 10}
     communityCards.push(randomCard)
     card_deck.delete(randomCard);
     await animateRiver(randomCard)
